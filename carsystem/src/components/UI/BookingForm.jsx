@@ -5,6 +5,7 @@ import { Form, FormGroup } from "reactstrap";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Check from "./Check";
+import { decodeToken } from '../User/jwtUtils';
 
 const BookingForm = ({id, price}) => {
   const submitHandler = (event) => {
@@ -14,6 +15,7 @@ const BookingForm = ({id, price}) => {
   const [dropOffDate, setDropOffDate] = useState('');
   const [dita, setDita] = useState(0);
   const [total, setTotal] = useState();
+  
   const [discountedPrice, setDiscountedPrice] = useState(null);
   const navigate = useNavigate();
 
@@ -22,7 +24,14 @@ const BookingForm = ({id, price}) => {
   const [lastName, setlastName] = useState("");
   const [number, setNumber] = useState("");
   const [description, setdescription] = useState("");
-  
+  const token = localStorage.getItem('token');
+  let idktu;
+  if (token) {
+    idktu = decodeToken(token).nameid;
+  }
+    
+    // setUserId(idktu)
+    console.log("babaArdi",idktu)
   
   useEffect(() => {
     // Function to calculate the sum and update the total state
@@ -35,6 +44,7 @@ const BookingForm = ({id, price}) => {
         const timeDifference = endDate.getTime() - startDate.getTime();
         const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
         setDita(daysDifference);
+       
       } else {
         setDita(null); // Reset the number of days if dates are not valid
       }
@@ -68,7 +78,7 @@ const BookingForm = ({id, price}) => {
       phone: number,
       description: description,
       total: total,
-      userId: 21,
+      userId: idktu,
      
      
       
@@ -87,7 +97,7 @@ const BookingForm = ({id, price}) => {
           phone: number,
           description: description,
           total: total,
-          userId: 21,
+          userId: idktu,
           discountedPrice: response.data,
           
         },
@@ -168,6 +178,7 @@ const BookingForm = ({id, price}) => {
           onChange={(e) => setdescription(e.target.value)}
         ></textarea>
       </FormGroup>
+      
       <div className="payment text-end mt-5">
         <button onClick={calculateDiscount}>Check</button>
       </div>

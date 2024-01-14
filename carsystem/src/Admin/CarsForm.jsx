@@ -3,7 +3,9 @@ import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 
-
+import {  Navbar, Nav, NavItem } from 'reactstrap';
+import { FaHome, FaUser, FaCog, FaChartBar,FaCar,FaCalendarAlt } from 'react-icons/fa';
+import { Link ,Route, Router} from 'react-router-dom';
  
 function CarsForm() {
  
@@ -162,12 +164,12 @@ async function update(event) {
 ///////////////////////////////////////////////////////////////
   return (
     <div>
-     
+      
      
       
  
           <h1>Write Information to Add a Car</h1>
-      <div class="container mt-4">
+      <div>
         <form>
         <Row>
         <Col

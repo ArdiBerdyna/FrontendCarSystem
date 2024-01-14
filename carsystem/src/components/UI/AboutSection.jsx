@@ -3,14 +3,14 @@ import { Container, Row, Col } from "reactstrap";
 import "../../styles/about-section.css";
 import aboutImg from "../../assets/all-images/cars-img/bmw-offer.png";
 
-const AboutSection = ({ aboutClass }) => {
+const AboutSection = () => {
   return (
     <section
       className="about__section"
       style={
-        aboutClass === "aboutPage"
-          ? { marginTop: "0px" }
-          : { marginTop: "280px" }
+      
+          
+           { marginTop: "20px" }
       }
     >
       <Container>

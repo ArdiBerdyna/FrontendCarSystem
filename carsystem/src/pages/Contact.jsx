@@ -5,6 +5,9 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 
 import "../styles/contact.css";
+import CarsForm from "../Admin/CarsForm";
+import Reservation from "../Admin/Reservation";
+import Admin from "../Admin/Admin";
 
 const socialLinks = [
   {
@@ -90,6 +93,7 @@ const Contact = () => {
           </Row>
         </Container>
       </section>
+      <Link to={"/admin"}>as</Link>
     </Helmet>
   );
 };

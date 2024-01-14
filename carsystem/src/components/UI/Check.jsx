@@ -27,6 +27,8 @@ function Check() {
             description: formData.description,
             total: formData.discountedPrice,
             userId: formData.userId,
+            carID: formData.carID,
+            priceDay:formData.priceDay,
            
             
           
@@ -56,6 +58,8 @@ function Check() {
         <p>Pick Up Date: {formData.pickUpDate}</p>
         <p>Drop Off Date: {formData.dropOffDate}</p>
         <p>Phone: {formData.phone}</p>
+        <p>Car id: {formData.carID}</p>
+        <p>Price Day: {formData.priceDay} $</p>
         <p>Description: {formData.description}</p>
         <p>UserId: {formData.userId}</p>
         <p>Total: {formData.discountedPrice}</p>

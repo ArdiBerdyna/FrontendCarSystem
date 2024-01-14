@@ -76,6 +76,8 @@ const BookingForm = ({id, price}) => {
       pickUpDate: pickUpDate,
       dropOffDate: dropOffDate,
       phone: number,
+      carID: id,
+      priceDay: price,
       description: description,
       total: total,
       userId: idktu,
@@ -95,6 +97,8 @@ const BookingForm = ({id, price}) => {
           pickUpDate: pickUpDate,
           dropOffDate: dropOffDate,
           phone: number,
+          carID: id,
+          priceDay: price,
           description: description,
           total: total,
           userId: idktu,
@@ -151,17 +155,17 @@ const BookingForm = ({id, price}) => {
       </FormGroup>
   
 
-      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
+      <FormGroup className="booking__form d-inline-block me-4 mb-4">
         <label >Id e Vetures</label>
          <input type="text" placeholder="id" defaultValue={id} /> 
       </FormGroup>
       
-      <FormGroup className="booking__form d-inline-block me-4 mb-4">
+      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
         <label>Qmimi</label>
          <input type="number" placeholder="qmimi" defaultValue={price}  readOnly /> 
       </FormGroup>
    
-      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
+      <FormGroup className="booking__form d-inline-block me-4 mb-4">
       <label>Total</label>
          <input type="number" placeholder="Totali" defaultValue={total} readOnly  /> 
       </FormGroup>

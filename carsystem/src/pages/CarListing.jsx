@@ -4,6 +4,7 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 import CarItem from "../components/UI/CarItem";
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 //import carData from "../assets/data/carData";
@@ -11,6 +12,12 @@ import axios from 'axios';
 
 const CarListing = () => {
   const [carData, setCarData] = useState([]);
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token'); // Get the token from local storage (assuming it is stored there)
+  // if (!token) {
+  //   navigate('/login'); // Redirect to the login page if the token is not set
+  //   // Return early to prevent further execution of the function
+  // }
 
   useEffect(() => {
     const fetchData = async () => {

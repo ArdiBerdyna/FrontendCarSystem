@@ -3,7 +3,9 @@ import React, { useRef } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../../styles/header.css";
-
+import { decodeToken } from "../User/jwtUtils";
+import {  useState } from "react";
+import { useNavigate } from 'react-router-dom';
 const navLinks = [
   {
     path: "/home",
@@ -30,6 +32,22 @@ const navLinks = [
 
 const Header = () => {
   const menuRef = useRef(null);
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+  const decodedToken = decodeToken(token);
+ let isAdmin;
+ if(token){
+  isAdmin = decodedToken.role === 'admin';
+ }
+
+ const handleLogout = () => {
+  
+  localStorage.removeItem('token');
+  navigate('/');
+  
+};
+  
+ 
 
   const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
 
@@ -50,13 +68,20 @@ const Header = () => {
 
             <Col lg="6" md="6" sm="6">
               <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
-                <Link to="/login" className=" d-flex align-items-center gap-1">
-                  <i class="ri-login-circle-line"></i> Login
-                </Link>
-
-                <Link to="/registration" className=" d-flex align-items-center gap-1">
+              <Link to="/registration" className=" d-flex align-items-center gap-1">
                   <i class="ri-user-line"></i> Register
                 </Link>
+              {localStorage.getItem('token') ? (
+          
+          <button onClick={handleLogout} style={{padding: '2px', backgroundColor: "#000d6b", border: "none", color:"white"}} >Logout</button>
+        
+      ) : (
+        <Link to="/login" className=" d-flex align-items-center gap-1">
+        <i class="ri-login-circle-line"></i> Login
+      </Link>      )}
+               
+
+               
               </div>
             </Col>
           </Row>
@@ -137,11 +162,22 @@ const Header = () => {
                     className={(navClass) =>
                       navClass.isActive ? "nav__active nav__item" : "nav__item"
                     }
-                    key={index}
+                    //key={index}
                   >
                     {item.display}
                   </NavLink>
+                  
                 ))}
+                 {isAdmin && <NavLink
+                    to={"/admin/cars"}
+                    className={(navClass) =>
+                      navClass.isActive ? "nav__active nav__item" : "nav__item"
+                    }
+                    //key={index}
+                  >
+                    Dashboard
+                  </NavLink>} 
+
               </div>
             </div>
 

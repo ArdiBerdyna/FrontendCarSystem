@@ -11,6 +11,9 @@ import Contact from "../pages/Contact";
 import Check from "../components/UI/Check";
 import LoginForm from "../components/User/LoginForm"
 import Registration from "../components/User/Registration"
+import CarsForm from "../Admin/CarsForm";
+import Reservation from "../Admin/Reservation";
+import Admin from "../Admin/Admin";
 
 const Routers = () => {
   return (
@@ -27,6 +30,9 @@ const Routers = () => {
       <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/registration" element={<Registration  />} />
+      <Route path="/admin" element={<Admin  />} />
+      <Route path="/admin/cars" element={<CarsForm  />} />
+      <Route path="/admin/reservation" element={<Reservation  />} />
     </Routes>
   );
 };

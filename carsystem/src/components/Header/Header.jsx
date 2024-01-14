@@ -169,11 +169,11 @@ const Header = () => {
                   
                 ))}
                  {isAdmin && <NavLink
-                    to={"/admin/cars"}
+                    to={"/adminres"}
                     className={(navClass) =>
                       navClass.isActive ? "nav__active nav__item" : "nav__item"
                     }
-                    //key={index}
+                    
                   >
                     Dashboard
                   </NavLink>} 

@@ -111,8 +111,8 @@ const Header = () => {
                   <i class="ri-earth-line"></i>
                 </span>
                 <div className="header__location-content">
-                  <h4>Bangladesh</h4>
-                  <h6>Sylhet City, Bangladesh</h6>
+                  <h4>Prishtina</h4>
+                  <h6>Prishtina, Kosova</h6>
                 </div>
               </div>
             </Col>
@@ -162,7 +162,7 @@ const Header = () => {
                     className={(navClass) =>
                       navClass.isActive ? "nav__active nav__item" : "nav__item"
                     }
-                    //key={index}
+                    key={index}
                   >
                     {item.display}
                   </NavLink>
@@ -178,15 +178,6 @@ const Header = () => {
                     Dashboard
                   </NavLink>} 
 
-              </div>
-            </div>
-
-            <div className="nav__right">
-              <div className="search__box">
-                <input type="text" placeholder="Search" />
-                <span>
-                  <i class="ri-search-line"></i>
-                </span>
               </div>
             </div>
           </div>

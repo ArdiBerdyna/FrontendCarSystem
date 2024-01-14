@@ -8,6 +8,7 @@ const ServicesList = () => {
     <>
       {servicesData.map((item) => (
         <ServiceItem item={item} key={item.id} />
+      
       ))}
     </>
   );

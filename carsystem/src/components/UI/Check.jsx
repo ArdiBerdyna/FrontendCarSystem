@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Container, Row, Col, Button, ListGroup, ListGroupItem } from "reactstrap";
 
 function Check() {
     const location = useLocation();
@@ -49,10 +50,24 @@ function Check() {
   
     return (
       <div>
+        <br /><br />
+        <Row>
+        <Col
+      className="bg-light border"
+      md={{
+        offset: 3,
+        size: 6
+      }}
+      sm="12"
+    >
+        
         {formData.discountedPrice != formData.total && (
-        <p>Congratulations! You've received a 20% discount on your purchase</p>
+        <h1>Congratulations! You've received a 20% discount on your purchase</h1>
       )} 
-        <h2>Check Component</h2>
+      
+        <br />
+        <h4>Check Reservation</h4>
+        <br />
         <p>First Name: {formData.firstName}</p>
         <p>Last Name: {formData.lasttName}</p>
         <p>Pick Up Date: {formData.pickUpDate}</p>
@@ -66,7 +81,12 @@ function Check() {
         <button class="btn btn-primary m-4" onClick={save}>
             Reserve Now
             </button>
+            </Col>
+      </Row>
+      <br />
+      <br />
       </div>
+      
     );
   };
 

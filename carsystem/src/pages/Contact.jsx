@@ -93,7 +93,7 @@ const Contact = () => {
           </Row>
         </Container>
       </section>
-      <Link to={"/admin"}>as</Link>
+      <Link to={"/adminres"}>as</Link>
     </Helmet>
   );
 };

@@ -2,30 +2,41 @@
 
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Navbar, Nav, NavItem } from 'reactstrap';
+import { FaHome, FaUser, FaCog, FaChartBar,FaCar,FaCalendarAlt } from 'react-icons/fa';
+import CarsForm from './CarsForm';
+import { Link ,Route, Router} from 'react-router-dom';
+import Reservation from './Reservation';
+import { useEffect, useState, useRef } from "react";
 
 const Admin = () => {
+    const [activeComponent, setActiveComponent] = useState('reservations');
+
+  const loadComponent = (component) => {
+    setActiveComponent(component);
+  };
+
   return (
     <Container fluid>
+      {/* Navbar */}
+      
+
       <Row>
         {/* Sidebar */}
-        <Col sm={3} className="bg-dark text-white">
-          <h2>Sidebar</h2>
-          <ul className="nav flex-column">
-            <li className="nav-item">
-              <a className="nav-link text-white" href="#link1">Link 1</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="#link2">Link 2</a>
-            </li>
+        <Col md={3} className="bg-dark text-white p-3">
+          
+          <Nav vertical>
+          <button onClick={() => loadComponent('cars')}>Load Cars Form</button>
+        <button onClick={() => loadComponent('reservations')}>Load Reservations Form</button>
             {/* Add more links as needed */}
-          </ul>
+          </Nav>
         </Col>
 
         {/* Main Content Area */}
-        <Col sm={9} className="bg-light">
+        <Col md={9} className="bg-light p-4">
           <h2>Main Content</h2>
-          {/* Add your main content here */}
+          {activeComponent === 'cars' && <CarsForm />}
+        {activeComponent === 'reservations' && <Reservation />}
         </Col>
       </Row>
     </Container>

@@ -93,6 +93,8 @@ const Contact = () => {
           </Row>
         </Container>
       </section>
+      <Link to={"/adminblog"}>test</Link>
+      <br />
       <Link to={"/adminres"}>as</Link>
     </Helmet>
   );

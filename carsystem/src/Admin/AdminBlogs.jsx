@@ -8,66 +8,64 @@ import { Container, Row, Col, Button } from "reactstrap";
 function CarsForm() {
  
 const [id, setId] = useState("");
-const [brand, setbrand] = useState("");
-const [rating, setrating] = useState();
-const [carName, setcarName] = useState("");
-const [imgUrl, setimgUrl] = useState("");
-const [model, setmodel] = useState("");
-const [price, setprice] = useState();
-const [speed, setspeed] = useState("");
-const [gps, setgps] = useState("");
-const [seatType, setseatType] = useState("");
-const [automatic, setautomatic] = useState("");
-const [description, setdescription] = useState("");
+const [title, setTitle] = useState("");
+const [author, setAuthor] = useState();
+const [date, setDate] = useState("");
+const [time, setTime] = useState("");
+const [imgUrl, setImgUrl] = useState();
+const [description, setDescription] = useState("");
+const [quote, setQuote] = useState("");
 const [updatest, setupdate] = useState(false);
 const [products, setProducts] = useState([]);
   useEffect(() => {
-    (async () => await Load())();
-  }, []);
+    
+    (async () => await Load() )();
+  } , []);
   async function Load() {
     
-    const result = await axios.get("https://localhost:7112/api/Cars/GetCar");
+    const result = await axios.get("https://localhost:7112/api/Blogs/GetBlogs");
     setProducts(result.data);
     console.log(result.data);
   }
+
+  const fillNow = () => {
+    const now = new Date();
+    const formattedDate = now.toISOString().split('T')[0]; // Get YYYY-MM-DD
+    const formattedTime = now.toTimeString().split(' ')[0]; // Get HH:mm:ss
+
+    setDate(formattedDate);
+    setTime(formattedTime);
+  };
   //per me kthy vleren e input ne null
   const inputFileRef = useRef(null);
-  async function save(event) {
-    
 
+  async function save(event) {
 
     event.preventDefault();
     try {
-      await axios.post("https://localhost:7112/api/Cars/PostCar", {
+      await axios.post("https://localhost:7112/api/Blogs/PostBlog", {
         
      
-      brand : brand,
-      rating : rating,
-      carName : carName,
+      title : title,
+      author : author,
+      date : date,
+      time : time,
       imgUrl : imgUrl,
-      model : model,
-      price : price,
-      speed : speed,
-      gps : gps,
-      seatType : seatType,
-      automatic: automatic,
-      description : description
+      description : description,
+      quote : quote,
+      
         
       
       });
       alert("Product Registation Successfully");
       setId("");
-      setbrand("");
-      setrating("");
-      setcarName("");
-      setimgUrl("");
-      setmodel("");
-      setprice("");
-      setspeed("");
-      setgps("");
-      setseatType("");
-      setautomatic("");
-      setdescription("");
+      setTitle("");
+      setAuthor("");
+      setDate("");
+      setTime("");
+      setImgUrl("");
+      setDescription("");
+      setQuote("");
       inputFileRef.current.value = '';
       
     
@@ -83,70 +81,55 @@ const [products, setProducts] = useState([]);
 
 
 async function deleteProduct(id) {
-  await axios.delete("https://localhost:7112/api/Cars/" + id);
+  await axios.delete("https://localhost:7112/api/Blogs/" + id);
   alert("Product deleted successfully");
   setId("");
-  setbrand("");
-  setrating("");
-  setcarName("");
-  setimgUrl("");
-  setmodel("");
-  setprice("");
-  setspeed("");
-  setgps("");
-  setseatType("");
-  setautomatic("");
-  setdescription("");
+  setTitle("");
+  setAuthor("");
+  setDate("");
+  setTime("");
+  setImgUrl("");
+  setDescription("");
+  setQuote("");
   setupdate(false);
   Load();
 }
 
 async function editProduct(products) {
   setId(products.id);
-  setbrand(products.brand);
-  setrating(products.rating);
-  setcarName(products.carName);
-  setmodel(products.model);
-  setprice(products.price);
-  setspeed(products.speed);
-  setgps(products.gps);
-  setseatType(products.seatType);
-  setautomatic(products.automatic);
-  setdescription(products.description);
-  setimgUrl(products.imgUrl);
+  setTitle(products.title);
+  setAuthor(products.author);
+  setDate(products.date);
+  setTime(products.time);
+  setImgUrl(products.imgUrl);
+  setDescription(products.description);
+  setQuote(products.quote);
   setupdate(true)
 }
 async function update(event) {
   event.preventDefault();
   try {
     const product = products.find((p) => p.id === id);
-    await axios.put("https://localhost:7112/api/Cars/", {
+    await axios.put("https://localhost:7112/api/Blogs/", {
       id: product.id,
-      brand : brand,
-      rating : rating,
-      carName : carName,
+      title : title,
+      author : author,
+      date : date,
+      time : time,
       imgUrl : imgUrl,
-      model : model,
-      price : price,
-      speed : speed,
-      gps : gps,
-      seatType : seatType,
-      automatic: automatic,
-      description : description
+      description : description,
+      quote : quote,
+      
     });
     alert("Registration Updated");
     setId("");
-    setbrand("");
-    setrating("");
-    setcarName("");
-    setimgUrl("");
-    setmodel("");
-    setprice("");
-    setspeed("");
-    setgps("");
-    setseatType("");
-    setautomatic("");
-    setdescription("");
+  setTitle("");
+  setAuthor("");
+  setDate("");
+  setTime("");
+  setImgUrl("");
+  setDescription("");
+  setQuote("");
     setupdate(false);
 
     
@@ -166,7 +149,7 @@ async function update(event) {
      
       
  
-          <h1>Write Information to Add a Car</h1>
+          <h1>Write Information to Add a Blog</h1>
       <div>
         <form>
         <Row>
@@ -191,117 +174,73 @@ async function update(event) {
               }}
             />
  
-            <label>Brand</label>
+            <label>Title</label>
             <input
               type="text"
               class="form-control"
-              value={brand}
+              value={title}
               onChange={(event) => {
-                setbrand(event.target.value);
+                setTitle(event.target.value);
               }}
             />
           </div>
           <div class="form-group">
-            <label>Rating</label>
+            <label>author</label>
             <input
               type="text"
               class="form-control"
-              value={rating}
+              value={author}
               onChange={(event) => {
-                setrating(event.target.value);
+                setAuthor(event.target.value);
               }}
             />
           </div>
           <div class="form-group">
-            <label>Type</label>
+            <label>date</label>
             <input
-              type="text"
+            type="date"
               class="form-control"
-              value={carName}
+              value={date}
               onChange={(event) => {
-                setcarName(event.target.value);
+                setDate(event.target.value);
               }}
             />
           </div>
         
           <div class="form-group">
-            <label>Model</label>
+            <label>time</label>
             <input
               type="text"
               class="form-control"
-              value={model}
+              value={time}
               onChange={(event) => {
-                setmodel(event.target.value);
+                setTime(event.target.value);
               }}
             />
           </div>
           <div class="form-group">
-            <label>Price</label>
-            <input
-              type="text"
-              class="form-control"
-              value={price}
-              onChange={(event) => {
-                setprice(event.target.value);
-              }}
-            />
-          </div>
-          <div class="form-group">
-            <label>Speed</label>
-            <input
-              type="text"
-              class="form-control"
-              value={speed}
-              onChange={(event) => {
-                setspeed(event.target.value);
-              }}
-            />
-          </div>
-          <div class="form-group">
-            <label>GPS</label>
-            <input
-              type="text"
-              class="form-control"
-              value={gps}
-              onChange={(event) => {
-                setgps(event.target.value);
-              }}
-            />
-          </div>
-          <div class="form-group">
-            <label>Seat Type</label>
-            <input
-              type="text"
-              class="form-control"
-              value={seatType}
-              onChange={(event) => {
-                setseatType(event.target.value);
-              }}
-            />
-          </div>
-          <div class="form-group">
-            <label>Transmission</label>
-            <input
-              type="text"
-              class="form-control"
-              value={automatic}
-              onChange={(event) => {
-                setautomatic(event.target.value);
-              }}
-            />
-          </div>
-          <div class="form-group">
-            <label>Description</label>
+            <label>description</label>
             <input
               type="text"
               class="form-control"
               value={description}
               onChange={(event) => {
-                setdescription(event.target.value);
+                setDescription(event.target.value);
               }}
             />
-           
           </div>
+          <div class="form-group">
+            <label>quote</label>
+            <input
+              type="text"
+              class="form-control"
+              value={quote}
+              onChange={(event) => {
+                setQuote(event.target.value);
+              }}
+            />
+          </div>
+         
           <div class="form-group" >
             <label>Image</label>
             <input
@@ -310,7 +249,7 @@ async function update(event) {
               class="form-control"
               id="imgUrl"
               onChange={(event) => {
-                setimgUrl("/cars-img/"+event.target.files[0].name);
+                setImgUrl("/blog-img/"+event.target.files[0].name);
               }}
             />
           </div>
@@ -349,17 +288,13 @@ async function update(event) {
     <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">Brand</th>
-        <th scope="col">Rating</th>
-        <th scope="col">Type</th>
-        <th scope="col">Model</th>
-        <th scope="col">Price</th>
-        <th scope="col">Speed</th>
-        <th scope="col">Gps</th>
-        <th scope="col">Seat Type</th>
-        <th scope="col">Transmission</th>
-        <th scope="col">Description</th>
-        <th scope="col">Image</th>
+        <th scope="col">title</th>
+        <th scope="col">author</th>
+        <th scope="col">date</th>
+        <th scope="col">time</th>
+        <th scope="col">description</th>
+        <th scope="col">quote</th>
+        <th scope="col">imgUrl</th>
         <th scope="col">Options</th>
       </tr>
     </thead>
@@ -368,16 +303,13 @@ async function update(event) {
         return (
           <tr key={produkt.id}>
             <td>{produkt.id}</td>
-            <td>{produkt.brand}</td>
-            <td>{produkt.rating}</td>
-            <td>{produkt.carName}</td>
-            <td>{produkt.model}</td>
-            <td>{produkt.price}</td>
-            <td>{produkt.speed}</td>
-            <td>{produkt.gps}</td>
-            <td>{produkt.seatType}</td>
-            <td>{produkt.automatic}</td>
+            <td>{produkt.title}</td>
+            <td>{produkt.author}</td>
+            <td>{produkt.date}</td>
+            <td>{produkt.time}</td>
             <td>{produkt.description}</td>
+            <td>{produkt.quote}</td>
+            
             <td>
               <img src={produkt.imgUrl} style={{ maxWidth: '100%', height: 'auto', maxHeight: '150px' }} alt="Product Photo" />
             </td>

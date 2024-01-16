@@ -18,7 +18,7 @@ function Check() {
 
         event.preventDefault();
         try {
-            const response = await axios.post("https://localhost:7112/api/Reservations/PostCar", {
+            const response = await axios.post("https://localhost:7112/api/Reservations/PostReservation", {
             
             firstName: formData.firstName,
             lasttName: formData.lasttName,

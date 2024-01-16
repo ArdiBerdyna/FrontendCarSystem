@@ -14,6 +14,7 @@ import Registration from "../components/User/Registration"
 import CarsForm from "../Admin/CarsForm";
 import Reservation from "../Admin/Reservation";
 import Admin from "../Admin/Admin";
+import AdminBlogs from "../Admin/AdminBlogs";
 
 
 const Routers = () => {
@@ -32,6 +33,7 @@ const Routers = () => {
       <Route path="/login" element={<LoginForm />} />
       <Route path="/registration" element={<Registration  />} />
       <Route path="/adminres" element={<Admin  />} />
+      <Route path="/adminblog" element={<AdminBlogs />} />
       {/* <Route path="/admin/cars" element={<CarsForm  />} /> 
       <Route path="/admin/reservation" element={<Reservation  />} /> */}
     </Routes>

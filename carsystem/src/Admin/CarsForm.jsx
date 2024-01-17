@@ -28,7 +28,7 @@ const [products, setProducts] = useState([]);
     
     const result = await axios.get("https://localhost:7112/api/Cars/GetCar");
     setProducts(result.data);
-    console.log(result.data);
+    
   }
   //per me kthy vleren e input ne null
   const inputFileRef = useRef(null);

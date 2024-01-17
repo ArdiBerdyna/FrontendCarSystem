@@ -7,14 +7,22 @@ import { FaHome, FaUser, FaCog, FaChartBar,FaCar,FaCalendarAlt } from 'react-ico
 import CarsForm from './CarsForm';
 import { Link ,Route, Router} from 'react-router-dom';
 import Reservation from './Reservation';
+import AdminBlogs from './AdminBlogs';
 import { useEffect, useState, useRef } from "react";
 
 const Admin = () => {
     const [activeComponent, setActiveComponent] = useState('reservations');
-
-  const loadComponent = (component) => {
-    setActiveComponent(component);
-  };
+    useEffect(() => {
+      if (activeComponent) {
+        const delay = 500; // Set the delay in milliseconds
+  
+        const timeoutId = setTimeout(() => {
+          // Set the active component after the delay
+          // You can add any additional logic here if needed
+          clearTimeout(timeoutId);
+        }, delay);
+      }
+    }, [activeComponent]);
 
   return (
     <Container fluid>
@@ -26,8 +34,11 @@ const Admin = () => {
         <Col md={3} className="bg-dark text-white p-3">
           
           <Nav vertical>
-          <button onClick={() => loadComponent('cars')}>Load Cars Form</button>
-        <button onClick={() => loadComponent('reservations')}>Load Reservations Form</button>
+          <button onClick={() => setActiveComponent('reservations')}>Load Reservations</button>
+          <button onClick={() => setActiveComponent('cars')}>Load Cars Form</button>
+        
+        <button onClick={() => setActiveComponent('blogs')}>Load Blogs</button>
+
             {/* Add more links as needed */}
           </Nav>
         </Col>
@@ -35,8 +46,10 @@ const Admin = () => {
         {/* Main Content Area */}
         <Col md={9} className="bg-light p-4">
           <h2>Main Content</h2>
+          {activeComponent === 'reservations' && <Reservation />}
           {activeComponent === 'cars' && <CarsForm />}
-        {activeComponent === 'reservations' && <Reservation />}
+        
+        {activeComponent === 'blogs' && <AdminBlogs />}
         </Col>
       </Row>
     </Container>

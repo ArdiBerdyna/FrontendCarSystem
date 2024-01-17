@@ -9,20 +9,11 @@ import { Link ,Route, Router} from 'react-router-dom';
 import Reservation from './Reservation';
 import AdminBlogs from './AdminBlogs';
 import { useEffect, useState, useRef } from "react";
+import AdminContact from './AdminContact';
 
 const Admin = () => {
     const [activeComponent, setActiveComponent] = useState('reservations');
-    useEffect(() => {
-      if (activeComponent) {
-        const delay = 500; // Set the delay in milliseconds
-  
-        const timeoutId = setTimeout(() => {
-          // Set the active component after the delay
-          // You can add any additional logic here if needed
-          clearTimeout(timeoutId);
-        }, delay);
-      }
-    }, [activeComponent]);
+
 
   return (
     <Container fluid>
@@ -38,6 +29,7 @@ const Admin = () => {
           <button onClick={() => setActiveComponent('cars')}>Load Cars Form</button>
         
         <button onClick={() => setActiveComponent('blogs')}>Load Blogs</button>
+        <button onClick={() => setActiveComponent('contacts')}>Load Contact</button>
 
             {/* Add more links as needed */}
           </Nav>
@@ -50,6 +42,7 @@ const Admin = () => {
           {activeComponent === 'cars' && <CarsForm />}
         
         {activeComponent === 'blogs' && <AdminBlogs />}
+        {activeComponent === 'contacts' && <AdminContact />}
         </Col>
       </Row>
     </Container>

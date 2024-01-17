@@ -204,7 +204,7 @@ async function update(event) {
           <div class="form-group">
             <label>Rating</label>
             <input
-              type="text"
+              type="number"
               class="form-control"
               value={rating}
               onChange={(event) => {
@@ -238,7 +238,7 @@ async function update(event) {
           <div class="form-group">
             <label>Price</label>
             <input
-              type="text"
+              type="number"
               class="form-control"
               value={price}
               onChange={(event) => {

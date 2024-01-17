@@ -15,6 +15,7 @@ import CarsForm from "../Admin/CarsForm";
 import Reservation from "../Admin/Reservation";
 import Admin from "../Admin/Admin";
 import AdminBlogs from "../Admin/AdminBlogs";
+import AdminContact from "../Admin/AdminContact";
 
 
 const Routers = () => {
@@ -34,6 +35,7 @@ const Routers = () => {
       <Route path="/registration" element={<Registration  />} />
       <Route path="/adminres" element={<Admin  />} />
       <Route path="/adminblog" element={<AdminBlogs />} />
+      <Route path="/adminContact" element={<AdminContact />} />
       {/* <Route path="/admin/cars" element={<CarsForm  />} /> 
       <Route path="/admin/reservation" element={<Reservation  />} /> */}
     </Routes>

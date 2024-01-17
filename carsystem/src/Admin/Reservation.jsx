@@ -13,6 +13,12 @@ function Reservation() {
     setRezervimet(result.data);
    
   }
+  async function deleteProduct(id) {
+    await axios.delete("https://localhost:7112/api/Reservations/" + id);
+    alert("Product deleted successfully");
+   
+    Load();
+  }
   
 
   return (
@@ -31,7 +37,7 @@ function Reservation() {
         <th scope="col">Description</th>
         <th scope="col">Total</th>
         <th scope="col">User Id</th>
-     
+        <th scope="col">Finished</th>
       </tr>
     </thead>
     <tbody>
@@ -49,6 +55,13 @@ function Reservation() {
             <td>{rez.description}</td>
             <td>{rez.total}</td>
             <td>{rez.userId}</td>
+           <td> <button
+                type="button"
+                className="btn btn-danger mx-1"
+                onClick={() => deleteProduct(rez.id)}
+              >
+                Finish
+              </button></td>
           </tr>
         );
       })}

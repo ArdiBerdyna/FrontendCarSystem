@@ -2,9 +2,27 @@ import React from "react";
 import { Col } from "reactstrap";
 import "../../styles/blog-item.css";
 import { Link } from "react-router-dom";
-import blogData from "../../assets/data/blogData";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
+//import blogData from "../../assets/data/blogData";
 
 const BlogList = () => {
+  const [blogData, setblogData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://localhost:7112/api/Blogs/GetBlogs');
+        setblogData(response.data);
+      
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
+    
+    fetchData();
+    
+  }, []);
   return (
     <>
       {blogData.map((item) => (
@@ -42,11 +60,11 @@ const BlogItem = ({ item }) => {
 
             <div className=" d-flex align-items-center gap-3">
               <span className=" d-flex align-items-center gap-1 section__description">
-                <i class="ri-calendar-line"></i> {date}
+                <i class="ri-calendar-line"></i> {date.substr(0, 10)}
               </span>
 
               <span className=" d-flex align-items-center gap-1 section__description">
-                <i class="ri-time-line"></i> {time}
+                <i class="ri-time-line"></i> {time.substr(0,5)}
               </span>
             </div>
           </div>

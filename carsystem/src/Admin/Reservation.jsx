@@ -11,13 +11,13 @@ function Reservation() {
     
     const result = await axios.get("https://localhost:7112/api/Reservations");
     setRezervimet(result.data);
-    console.log(result.data);
+   
   }
   
 
   return (
     <div className="table-responsive m-3">
-  <table className="table border-dark ">
+       <table className="table border-dark ">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -49,16 +49,12 @@ function Reservation() {
             <td>{rez.description}</td>
             <td>{rez.total}</td>
             <td>{rez.userId}</td>
-            
-            
-
-         
-      
           </tr>
         );
       })}
     </tbody>
   </table>
+  
 </div>
   )
 }

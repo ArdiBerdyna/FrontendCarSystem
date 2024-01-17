@@ -20,12 +20,14 @@ const [products, setProducts] = useState([]);
   useEffect(() => {
     
     (async () => await Load() )();
+    
   } , []);
   async function Load() {
     
     const result = await axios.get("https://localhost:7112/api/Blogs/GetBlogs");
     setProducts(result.data);
-    console.log(result.data);
+
+    fillNow();
   }
 
   const fillNow = () => {
@@ -43,6 +45,7 @@ const [products, setProducts] = useState([]);
 
     event.preventDefault();
     try {
+      fillNow();
       await axios.post("https://localhost:7112/api/Blogs/PostBlog", {
         
      
@@ -86,8 +89,8 @@ async function deleteProduct(id) {
   setId("");
   setTitle("");
   setAuthor("");
-  setDate("");
-  setTime("");
+  // setDate("");
+  // setTime("");
   setImgUrl("");
   setDescription("");
   setQuote("");
@@ -125,8 +128,8 @@ async function update(event) {
     setId("");
   setTitle("");
   setAuthor("");
-  setDate("");
-  setTime("");
+  // setDate("");
+  // setTime("");
   setImgUrl("");
   setDescription("");
   setQuote("");
@@ -185,7 +188,7 @@ async function update(event) {
             />
           </div>
           <div class="form-group">
-            <label>author</label>
+            <label>Author</label>
             <input
               type="text"
               class="form-control"
@@ -195,31 +198,9 @@ async function update(event) {
               }}
             />
           </div>
+          
           <div class="form-group">
-            <label>date</label>
-            <input
-            type="date"
-              class="form-control"
-              value={date}
-              onChange={(event) => {
-                setDate(event.target.value);
-              }}
-            />
-          </div>
-        
-          <div class="form-group">
-            <label>time</label>
-            <input
-              type="text"
-              class="form-control"
-              value={time}
-              onChange={(event) => {
-                setTime(event.target.value);
-              }}
-            />
-          </div>
-          <div class="form-group">
-            <label>description</label>
+            <label>Description</label>
             <input
               type="text"
               class="form-control"
@@ -230,7 +211,7 @@ async function update(event) {
             />
           </div>
           <div class="form-group">
-            <label>quote</label>
+            <label>Quote</label>
             <input
               type="text"
               class="form-control"
@@ -255,12 +236,7 @@ async function update(event) {
           </div>
           <br /><br />
           <div>
-            {/* <button class="btn btn-primary m-4" onClick={save}>
-              Register
-              </button>
-              <button class="btn btn-warning m-4" onClick={update}>
-              Update
-            </button> */}
+            
             {updatest ? (
         <button class="btn btn-warning m-4" onClick={update}>Update</button>
       ) : (
@@ -288,13 +264,13 @@ async function update(event) {
     <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">title</th>
-        <th scope="col">author</th>
-        <th scope="col">date</th>
-        <th scope="col">time</th>
-        <th scope="col">description</th>
-        <th scope="col">quote</th>
-        <th scope="col">imgUrl</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Description</th>
+        <th scope="col">Quote</th>
+        <th scope="col">Image</th>
         <th scope="col">Options</th>
       </tr>
     </thead>
@@ -305,8 +281,8 @@ async function update(event) {
             <td>{produkt.id}</td>
             <td>{produkt.title}</td>
             <td>{produkt.author}</td>
-            <td>{produkt.date}</td>
-            <td>{produkt.time}</td>
+            <td>{produkt.date.substr(0, 10)}</td>
+            <td>{produkt.time.substr(0,5)}</td>
             <td>{produkt.description}</td>
             <td>{produkt.quote}</td>
             

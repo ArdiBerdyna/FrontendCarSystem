@@ -15,10 +15,10 @@ const CarListing = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const token = localStorage.getItem('token'); // Get the token from local storage (assuming it is stored there)
-  // if (!token) {
-  //   navigate('/login'); // Redirect to the login page if the token is not set
+   if (!token) {
+    navigate('/login'); // Redirect to the login page if the token is not set
   //   // Return early to prevent further execution of the function
-  // }
+   }
 
   useEffect(() => {
     const fetchData = async () => {

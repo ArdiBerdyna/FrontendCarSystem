@@ -133,11 +133,11 @@ const Contact = () => {
           </Row>
         </Container>
       </section>
-      <Link to={"/adminblog"}>test</Link>
+      {/* <Link to={"/adminblog"}>test</Link>
       <br />
       <Link to={"/adminres"}>as</Link>
       <br />
-      <Link to={"/adminContact"}>sadsa</Link>
+      <Link to={"/adminContact"}>sadsa</Link> */}
     </Helmet>
   );
 };

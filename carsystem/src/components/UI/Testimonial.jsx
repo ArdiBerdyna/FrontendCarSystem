@@ -25,7 +25,7 @@ const Testimonial = () => {
     <Slider {...settings}>
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-        I've been using Car Rental Company for my travel needs for quite some time, and they never cease to impress. The level of service and convenience they offer is unmatched
+        I've been using Car Rental Company for my travel needs for quite some time. The level of service is very highly. I recommend!
         </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">
@@ -40,8 +40,7 @@ const Testimonial = () => {
 
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-        I've been using Car Rental Company for my travel needs for quite some time, and they never cease to impress. The level of service and convenience they offer is unmatched
-        </p>
+        I've been using Car Rental Company for my travel needs for quite some time. The level of service is very highly. I recommend!        </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">
           <img src={ava02} alt="" className="w-25 h-25 rounded-2" />
@@ -55,8 +54,7 @@ const Testimonial = () => {
 
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-        I've been using Car Rental Company for my travel needs for quite some time, and they never cease to impress. The level of service and convenience they offer is unmatched
-        </p>
+        I've been using Car Rental Company for my travel needs for quite some time. The level of service is very highly. I recommend!        </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">
           <img src={ava03} alt="" className="w-25 h-25 rounded-2" />
@@ -70,8 +68,7 @@ const Testimonial = () => {
 
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-        I've been using Car Rental Company for my travel needs for quite some time, and they never cease to impress. The level of service and convenience they offer is unmatched
-        </p>
+        I've been using Car Rental Company for my travel needs for quite some time. The level of service is very highly. I recommend!        </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">
           <img src={ava04} alt="" className="w-25 h-25 rounded-2" />

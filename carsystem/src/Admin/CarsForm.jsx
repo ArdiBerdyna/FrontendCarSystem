@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Container, Row, Col, Button, Form } from "reactstrap";
 
 
  
@@ -21,6 +21,7 @@ const [automatic, setautomatic] = useState("");
 const [description, setdescription] = useState("");
 const [updatest, setupdate] = useState(false);
 const [products, setProducts] = useState([]);
+
   useEffect(() => {
     (async () => await Load())();
   }, []);
@@ -37,6 +38,10 @@ const [products, setProducts] = useState([]);
 
 
     event.preventDefault();
+    if (!brand || !rating || !carName || !model || !price || !speed || !gps || !seatType || !automatic || !description || !imgUrl) {
+      alert("Please fill all required fields.");
+      return;
+    }
     try {
       await axios.post("https://localhost:7112/api/Cars/PostCar", {
         
@@ -118,6 +123,11 @@ async function editProduct(products) {
 }
 async function update(event) {
   event.preventDefault();
+  if (!brand || !rating || !carName || !model || !price || !speed || !gps || !seatType || !automatic || !description || !imgUrl) {
+    alert("Please fill all required fields.");
+    return;
+  }
+  
   try {
     const product = products.find((p) => p.id === id);
     await axios.put("https://localhost:7112/api/Cars/", {
@@ -168,7 +178,7 @@ async function update(event) {
  
           <h1>Write Information to Add a Car</h1>
       <div>
-        <form>
+        <Form  >
         <Row>
         <Col
       className="bg-light border"
@@ -190,32 +200,34 @@ async function update(event) {
                 setId(event.target.value);
               }}
             />
- 
+          
             <label>Brand</label>
             <input
-              type="text"
+              type="text" 
               class="form-control"
               value={brand}
               onChange={(event) => {
                 setbrand(event.target.value);
               }}
+              required
             />
           </div>
           <div class="form-group">
             <label>Rating</label>
             <input
-              type="number"
+              type="number" 
               class="form-control"
               value={rating}
               onChange={(event) => {
                 setrating(event.target.value);
               }}
+              required
             />
           </div>
           <div class="form-group">
             <label>Type</label>
             <input
-              type="text"
+              type="text" required
               class="form-control"
               value={carName}
               onChange={(event) => {
@@ -227,18 +239,19 @@ async function update(event) {
           <div class="form-group">
             <label>Model</label>
             <input
-              type="text"
+              type="text" 
               class="form-control"
               value={model}
               onChange={(event) => {
                 setmodel(event.target.value);
               }}
+              required
             />
           </div>
           <div class="form-group">
             <label>Price</label>
             <input
-              type="number"
+              type="number" required
               class="form-control"
               value={price}
               onChange={(event) => {
@@ -249,7 +262,7 @@ async function update(event) {
           <div class="form-group">
             <label>Speed</label>
             <input
-              type="text"
+              type="text" required
               class="form-control"
               value={speed}
               onChange={(event) => {
@@ -260,7 +273,7 @@ async function update(event) {
           <div class="form-group">
             <label>GPS</label>
             <input
-              type="text"
+              type="text" required
               class="form-control"
               value={gps}
               onChange={(event) => {
@@ -271,7 +284,7 @@ async function update(event) {
           <div class="form-group">
             <label>Seat Type</label>
             <input
-              type="text"
+              type="text" required
               class="form-control"
               value={seatType}
               onChange={(event) => {
@@ -282,7 +295,7 @@ async function update(event) {
           <div class="form-group">
             <label>Transmission</label>
             <input
-              type="text"
+              type="text" required
               class="form-control"
               value={automatic}
               onChange={(event) => {
@@ -293,7 +306,7 @@ async function update(event) {
           <div class="form-group">
             <label>Description</label>
             <input
-              type="text"
+              type="text" required
               class="form-control"
               value={description}
               onChange={(event) => {
@@ -305,7 +318,7 @@ async function update(event) {
           <div class="form-group" >
             <label>Image</label>
             <input
-              type="file"
+              type="file" required
               ref={inputFileRef}
               class="form-control"
               id="imgUrl"
@@ -323,9 +336,9 @@ async function update(event) {
               Update
             </button> */}
             {updatest ? (
-        <button class="btn btn-warning m-4" onClick={update}>Update</button>
+        <button class="btn btn-warning m-4" type="submit" onClick={update}>Update</button>
       ) : (
-        <button class="btn btn-primary m-4" onClick={save}>Register</button>
+        <button class="btn btn-primary m-4"  type="submit" onClick={save}>Register</button>
       )}
              
             
@@ -339,7 +352,7 @@ async function update(event) {
 
           </Col>
     </Row>
-        </form>
+        </Form>
         
       </div>
       <br></br>

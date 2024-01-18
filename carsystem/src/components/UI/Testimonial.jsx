@@ -42,10 +42,7 @@ const Testimonial = () => {
     <Slider {...settings}>
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus magni
-          explicabo molestias recusandae repudiandae, dolor, sapiente placeat
-          ab, animi eum minima nulla facere aliquam aut vitae quo pariatur
-          voluptate odit?
+        I've been using Car Rental Company for my travel needs for quite some time, and they never cease to impress. The level of service and convenience they offer is unmatched
         </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">
@@ -60,10 +57,7 @@ const Testimonial = () => {
 
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus magni
-          explicabo molestias recusandae repudiandae, dolor, sapiente placeat
-          ab, animi eum minima nulla facere aliquam aut vitae quo pariatur
-          voluptate odit?
+        I've been using Car Rental Company for my travel needs for quite some time, and they never cease to impress. The level of service and convenience they offer is unmatched
         </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">
@@ -78,10 +72,7 @@ const Testimonial = () => {
 
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus magni
-          explicabo molestias recusandae repudiandae, dolor, sapiente placeat
-          ab, animi eum minima nulla facere aliquam aut vitae quo pariatur
-          voluptate odit?
+        I've been using Car Rental Company for my travel needs for quite some time, and they never cease to impress. The level of service and convenience they offer is unmatched
         </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">
@@ -96,10 +87,7 @@ const Testimonial = () => {
 
       <div className="testimonial py-4 px-3">
         <p className="section__description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus magni
-          explicabo molestias recusandae repudiandae, dolor, sapiente placeat
-          ab, animi eum minima nulla facere aliquam aut vitae quo pariatur
-          voluptate odit?
+        I've been using Car Rental Company for my travel needs for quite some time, and they never cease to impress. The level of service and convenience they offer is unmatched
         </p>
 
         <div className="mt-3 d-flex align-items-center gap-4">

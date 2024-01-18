@@ -115,18 +115,21 @@ const BookingForm = ({id, price}) => {
   return (
     <Form onSubmit={submitHandler}>
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="text" placeholder="First Name"
+      <label>First Name </label>
+        <input type="text" required
          value={firstName}
          onChange={(e) => setfirstName(e.target.value)}  />
       </FormGroup>
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <input type="text" placeholder="Last Name"
+      <label>Last Name </label>
+        <input type="text"  required
          value={lastName}
          onChange={(e) => setlastName(e.target.value)} />
       </FormGroup>
 
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="text" placeholder="Number" 
+      <label>Number </label>
+        <input type="text" required
          value={number}
          onChange={(e) => setNumber(e.target.value)}/>
       </FormGroup>
@@ -134,7 +137,7 @@ const BookingForm = ({id, price}) => {
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
         <label>Pick Up Date: </label>
         <input
-          type="date"
+          type="date" required
           value={pickUpDate}
           onChange={(e) => setPickUpDate(e.target.value)}
         />
@@ -143,32 +146,33 @@ const BookingForm = ({id, price}) => {
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
         <label>Drop Off Date: </label>
         <input
-          type="date"
+          type="date" required
           value={dropOffDate}
           onChange={(e) => setDropOffDate(e.target.value)}
         />
       </FormGroup>
 
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <label>Ditaa: </label>
-        <input type="number" value={dita || ''} readOnly />
+        <label>Number Of Days </label>
+        <input type="number" value={dita} readOnly />
       </FormGroup>
   
 
-      <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <label >Id e Vetures</label>
-         <input type="text" placeholder="id" defaultValue={id} /> 
-      </FormGroup>
+     
       
-      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <label>Qmimi</label>
+      <FormGroup className="booking__form d-inline-block me-4 mb-4">
+        <label>Price for Day</label>
          <input type="number" placeholder="qmimi" defaultValue={price}  readOnly /> 
       </FormGroup>
    
-      <FormGroup className="booking__form d-inline-block me-4 mb-4">
+      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
       <label>Total</label>
          <input type="number" placeholder="Totali" defaultValue={total} readOnly  /> 
       </FormGroup>
+      <FormGroup className="booking__form d-inline-block me-4 mb-4">
+       
+       <input type="text" placeholder="id" defaultValue={id} hidden /> 
+    </FormGroup>
      
      
 

@@ -18,7 +18,8 @@ function Registration() {
         const [confirmPassword, setconfirmpassword] = useState("");
         const [role, setrole] = useState("client");
         const [message, setMessage] = useState('');
-      
+        const navigate = useNavigate();
+
          const handleSubmit =  async(event) => {
               event.preventDefault();
             
@@ -56,7 +57,7 @@ function Registration() {
                   setpassword("");
                   setconfirmpassword("");
                   setrole("");
-                  
+                  navigate("/login");
                   
                 
                 

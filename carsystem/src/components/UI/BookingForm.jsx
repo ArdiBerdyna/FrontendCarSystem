@@ -31,7 +31,7 @@ const BookingForm = ({id, price}) => {
   }
     
     // setUserId(idktu)
-    console.log("babaArdi",idktu)
+    
   
   useEffect(() => {
     // Function to calculate the sum and update the total state
@@ -44,6 +44,7 @@ const BookingForm = ({id, price}) => {
         const timeDifference = endDate.getTime() - startDate.getTime();
         const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
         setDita(daysDifference);
+        
        
       } else {
         setDita(null); // Reset the number of days if dates are not valid
@@ -52,13 +53,14 @@ const BookingForm = ({id, price}) => {
 
 
     calculateDays();
-    
     const calculateTotal = () => {
       const sum = dita * price;
       setTotal(sum);
+      
     };
     // Call calculateTotal whenever id or price changes
     calculateTotal();
+    
   }, [dita, price, pickUpDate, dropOffDate]);
 
   console.log(total)
@@ -87,7 +89,7 @@ const BookingForm = ({id, price}) => {
     
     });
 
-    console.log("asdasd"+response.data)
+    
    
       setDiscountedPrice(response.data);
       navigate('/check', {

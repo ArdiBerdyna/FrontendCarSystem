@@ -68,9 +68,6 @@ const Contact = () => {
     });
   };
 
-   useEffect(() => {
-   // You can add any initialization code here if needed
-  }, []);
   return (
     <Helmet title="Contact">
       <CommonSection title="Contact" />

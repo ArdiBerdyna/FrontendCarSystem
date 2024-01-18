@@ -35,7 +35,7 @@ function Check() {
           
           });
     
-          alert("Blerja eshte ber me sukses")
+          alert("Reservation Successfully")
           navigate("/cars")
     
          

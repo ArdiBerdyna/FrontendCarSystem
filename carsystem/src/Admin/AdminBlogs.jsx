@@ -44,6 +44,10 @@ const [products, setProducts] = useState([]);
   async function save(event) {
 
     event.preventDefault();
+    if (!title || !author || !imgUrl || !description || !quote) {
+      alert("Please fill all required fields.");
+      return;
+    }
     try {
       fillNow();
       await axios.post("https://localhost:7112/api/Blogs/PostBlog", {
@@ -111,6 +115,10 @@ async function editProduct(products) {
 }
 async function update(event) {
   event.preventDefault();
+  if (!title || !author || !imgUrl || !description || !quote) {
+    alert("Please fill all required fields.");
+    return;
+  }
   try {
     const product = products.find((p) => p.id === id);
     await axios.put("https://localhost:7112/api/Blogs/", {

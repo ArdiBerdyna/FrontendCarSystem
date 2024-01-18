@@ -32,18 +32,14 @@ const About = () => {
                 </h2>
 
                 <p className="section__description">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Eveniet veniam assumenda aperiam accusantium ex autem
-                  perferendis repellendus nostrum delectus. Nemo et dolore est
-                  tempore rem minima adipisci magni dolorum ipsam.
+                Our commitment to safety starts with a meticulously maintained fleet of vehicles, each undergoing rigorous inspections to meet the highest industry standards. From routine maintenance to advanced safety features, we leave no stone unturned in creating a fleet that you can trust.
+
+Trained and professional drivers form the backbone of our safe ride solutions. They are not just drivers; they are your partners in ensuring a secure journey. Our team undergoes continuous training, emphasizing defensive driving and customer service, to provide you with a reassuring and enjoyable experience.
+
+We leverage cutting-edge technology to enhance safety further. Real-time tracking, emergency assistance features, and thorough background checks on our drivers are just a few ways we integrate technology to safeguard your travels
                 </p>
 
-                <p className="section__description">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Eveniet veniam assumenda aperiam accusantium ex autem
-                  perferendis repellendus nostrum delectus. Nemo et dolore est
-                  tempore rem minima adipisci magni dolorum ipsam.
-                </p>
+                
 
                 <div className=" d-flex align-items-center gap-3 mt-4">
                   <span className="fs-4">
@@ -52,7 +48,7 @@ const About = () => {
 
                   <div>
                     <h6 className="section__subtitle">Need Any Help?</h6>
-                    <h4>+00123456789</h4>
+                    <h4>+38349100200</h4>
                   </div>
                 </div>
               </div>

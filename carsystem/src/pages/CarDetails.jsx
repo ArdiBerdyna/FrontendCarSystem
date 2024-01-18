@@ -13,10 +13,10 @@ const CarDetails = () => {
   const [carData, setCarData] = useState([]);
   const [singleCarItem, setSingleCarItem] = useState(null);
   const token = localStorage.getItem('token'); // Get the token from local storage (assuming it is stored there)
-//   if (!token) {
-//    navigate('/login'); // Redirect to the login page if the token is not set
+  if (!token) {
+       navigate('/login'); // Redirect to the login page if the token is not set
 //  //   // Return early to prevent further execution of the function
-//  }
+  }
   // Function to extract query parameters from the URL
   const getQueryParam = (name) => {
     const searchParams = new URLSearchParams(location.search);

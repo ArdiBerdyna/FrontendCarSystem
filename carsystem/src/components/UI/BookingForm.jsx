@@ -69,6 +69,10 @@ const BookingForm = ({id, price}) => {
 
  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   const calculateDiscount = async () => {
+    if(dita<=0){
+      alert("Pick up Date is Incorrect")
+      return;
+    }
     try {
       const response = await axios.post("https://localhost:7112/api/Reservations/CalculateDiscountedPrice", {
         
@@ -118,20 +122,20 @@ const BookingForm = ({id, price}) => {
     <Form onSubmit={submitHandler}>
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
       <label>First Name </label>
-        <input type="text" required
+        <input type="text" 
          value={firstName}
          onChange={(e) => setfirstName(e.target.value)}  />
       </FormGroup>
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
       <label>Last Name </label>
-        <input type="text"  required
+        <input type="text"  
          value={lastName}
          onChange={(e) => setlastName(e.target.value)} />
       </FormGroup>
 
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
       <label>Number </label>
-        <input type="text" required
+        <input type="text" 
          value={number}
          onChange={(e) => setNumber(e.target.value)}/>
       </FormGroup>
@@ -139,7 +143,7 @@ const BookingForm = ({id, price}) => {
       <FormGroup className="booking__form d-inline-block ms-1 mb-4">
         <label>Pick Up Date: </label>
         <input
-          type="date" required
+          type="date" 
           value={pickUpDate}
           onChange={(e) => setPickUpDate(e.target.value)}
         />
@@ -148,7 +152,7 @@ const BookingForm = ({id, price}) => {
       <FormGroup className="booking__form d-inline-block me-4 mb-4">
         <label>Drop Off Date: </label>
         <input
-          type="date" required
+          type="date" 
           value={dropOffDate}
           onChange={(e) => setDropOffDate(e.target.value)}
         />

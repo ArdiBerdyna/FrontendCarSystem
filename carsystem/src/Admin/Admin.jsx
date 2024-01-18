@@ -26,10 +26,10 @@ const Admin = () => {
           
           <Nav vertical>
           <button onClick={() => setActiveComponent('reservations')}>Load Reservations</button>
-          <button onClick={() => setActiveComponent('cars')}>Load Cars Form</button>
+          <button onClick={() => setActiveComponent('cars')}>Load Cars</button>
         
         <button onClick={() => setActiveComponent('blogs')}>Load Blogs</button>
-        <button onClick={() => setActiveComponent('contacts')}>Load Contact</button>
+        <button onClick={() => setActiveComponent('contacts')}>Load Contacts</button>
 
             {/* Add more links as needed */}
           </Nav>

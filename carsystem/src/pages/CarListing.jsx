@@ -7,8 +7,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-//import carData from "../assets/data/carData";
-//import CarList from "../assets/data/CarList";
+
 
 const CarListing = () => {
   const [carData, setCarData] = useState([]);

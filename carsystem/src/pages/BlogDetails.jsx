@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Form, FormGroup, Input } from "reactstrap";
 
 import { useParams } from "react-router-dom";
-//import blogData from "../assets/data/blogData.js";
 import Helmet from "../components/Helmet/Helmet";
 import { Link } from "react-router-dom";
 import axios from 'axios';

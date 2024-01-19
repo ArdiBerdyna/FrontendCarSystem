@@ -15,7 +15,7 @@ function Reservation() {
   }
   async function deleteProduct(id) {
     await axios.delete("https://localhost:7112/api/Reservations/" + id);
-    alert("Product deleted successfully");
+    alert("Deleted successfully");
    
     Load();
   }

@@ -64,7 +64,7 @@ const [products, setProducts] = useState([]);
         
       
       });
-      alert("Product Registation Successfully");
+      alert("Registration Successfully");
       setId("");
       setTitle("");
       setAuthor("");
@@ -89,7 +89,7 @@ const [products, setProducts] = useState([]);
 
 async function deleteProduct(id) {
   await axios.delete("https://localhost:7112/api/Blogs/" + id);
-  alert("Product deleted successfully");
+  alert("Deleted successfully");
   setId("");
   setTitle("");
   setAuthor("");

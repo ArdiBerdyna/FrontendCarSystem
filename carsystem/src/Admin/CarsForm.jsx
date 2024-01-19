@@ -60,7 +60,7 @@ const [products, setProducts] = useState([]);
         
       
       });
-      alert("Product Registation Successfully");
+      alert("Registation Successfully");
       setId("");
       setbrand("");
       setrating("");
@@ -89,7 +89,7 @@ const [products, setProducts] = useState([]);
 
 async function deleteProduct(id) {
   await axios.delete("https://localhost:7112/api/Cars/" + id);
-  alert("Product deleted successfully");
+  alert("Deleted successfully");
   setId("");
   setbrand("");
   setrating("");
